@@ -1,19 +1,17 @@
 for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
     document.querySelectorAll(".drum")[i].addEventListener("click", function () {
-        var buttonInnerHTML = this.innerText.trim().toLowerCase(); // Get text and trim spaces
+        var buttonInnerHTML = this.innerText.trim().toLowerCase();
         playSound(buttonInnerHTML);
         animator(buttonInnerHTML);
     });
 }
 
-// Detecting keyboard press
 document.addEventListener("keydown", function (event) {
-    var keyPressed = event.key.toLowerCase(); // Convert to lowercase
+    var keyPressed = event.key.toLowerCase(); 
     playSound(keyPressed);
     animator(keyPressed);
 });
 
-// Function to play sound
 function playSound(key) {
     switch (key) {
         case "w":
@@ -55,5 +53,8 @@ function animator(keyselected){
 
     setTimeout(function(){
         button.classList.remove("pressed");
-    },300);
+    },100);
 }
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
